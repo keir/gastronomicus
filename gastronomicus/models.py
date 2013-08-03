@@ -26,8 +26,8 @@ class Serving(models.Model):
     def __unicode__(self):
         ret = u'%s - %s' % (self.meeting.date, self.dish.name)
         if self.gift and self.giver:
-          return '%s by %s' % (ret, self.giver.name)
-        return u'%s - %s' % (self.meeting.date, self.dish.name)
+            return '%s by %s' % (ret, self.giver.name)
+        return ret
 
 class Attendee(models.Model):
     membership_started = models.DateField(null=True, blank=True, db_index=True)
@@ -39,9 +39,11 @@ class Attendee(models.Model):
 
     @property
     def name(self):
-      return (u'%s %s' % (self.first_name, self.last_name)).strip()
+        if self.first_name and self.last_name:
+            return (u'%s %s' % (self.first_name, self.last_name)).strip()
+        return self.first_name or self.last_name
 
     def __unicode__(self):
         if self.title:
-            return '%s - %s' % (self.name, self.title)
+            return '%s %s' % (self.title, self.name)
         return self.name

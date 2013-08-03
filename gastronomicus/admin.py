@@ -4,7 +4,17 @@ from models import Dish
 from models import Serving
 from models import Attendee
 
-admin.site.register(Meeting)
-admin.site.register(Dish)
+class ServingInline(admin.TabularInline):
+    model = Serving
+    extra = 1
+
+class MeetingAdmin(admin.ModelAdmin):
+    inlines = (ServingInline,)
+
+class DishAdmin(admin.ModelAdmin):
+    inlines = (ServingInline,)
+
+admin.site.register(Meeting, MeetingAdmin)
+admin.site.register(Dish, DishAdmin)
 admin.site.register(Serving)
 admin.site.register(Attendee)

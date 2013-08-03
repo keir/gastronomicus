@@ -83,10 +83,17 @@ ROOT_URLCONF = 'gastronomicus.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'gastronomicus.wsgi.application'
 
+import os
+
+PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
+
+
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    PROJECT_PATH,
+    PROJECT_PATH + '/templates/',
 )
 
 INSTALLED_APPS = (
@@ -99,6 +106,7 @@ INSTALLED_APPS = (
     'south',
     'django.contrib.admin',
     'gastronomicus',
+    'django_extensions',
 )
 
 # A sample logging configuration. The only tangible logging
