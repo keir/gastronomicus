@@ -103,7 +103,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'south',
     'django.contrib.admin',
     'gastronomicus',
     'django_extensions',
