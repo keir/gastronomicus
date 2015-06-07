@@ -65,3 +65,4 @@ def run():
   pylab.ylabel('Number of attendees')
   pylab.xlabel('Year')
   pylab.savefig('attendence_over_time.pdf')
+
