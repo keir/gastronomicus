@@ -18,7 +18,7 @@ def run():
 
   # Note that the number for Hugh Hume is inflated due to his re-serving of
   # pickled salmon over subsequent weeks. See the script.
-  for giver, number_given in giver_to_total_gifts.most_common(10):
+  for giver, number_given in giver_to_total_gifts.most_common(1000):
     print giver, '-', number_given, 'id:', giver.id
 
   print 'NOTE: See Hugh Hume script since his true number should be 28.'
